@@ -2,14 +2,7 @@ let options = ["rock", "paper", "scissors"];
 var userWins = 0;
 var computerWins = 0;
 
-function game() {
-    for(i = 0; i <= 5; i++) {
-        playRound();
-    }
-}
-
-function playRound() {
-    let userChoice = userPlay();
+function playRound(userChoice) {
     let computerChoice = computerPlay();
     if(userChoice === "rock") {
         if(computerChoice === "paper") {
@@ -58,10 +51,7 @@ function computerPlay () {
     return options[Math.floor(Math.random() * 4)];
 }
 
-function userPlay() {
-    let choice = prompt("Enter rock, paper, or scissors:");
-    choice = choice.toLowerCase();
-    return choice;
-}
+document.getElementById("rock").addEventListener("click", () => playRound("rock"));
+document.getElementById("paper").addEventListener("click", () => playRound("paper"));
+document.getElementById("scissors").addEventListener("click", () => playRound("scissors"));
 
-game();
